@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppMenuComponent } from './app-menu/app-menu.component';
+import { AppViewCharactersComponent } from './app-view-characters/app-view-characters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppMenuComponent
+    AppMenuComponent,
+    AppViewCharactersComponent
   ],
   imports: [
     BrowserModule,
