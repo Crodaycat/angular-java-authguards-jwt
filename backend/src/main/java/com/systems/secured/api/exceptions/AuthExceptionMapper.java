@@ -10,15 +10,19 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.ext.Provider;
 
 /**
  *
  * @author luis_
  */
-public class AuthExceptionMapper implements ExceptionMapper<AuthException>{
+@Provider
+public class AuthExceptionMapper implements ExceptionMapper<AuthException>
+{
     
     @Override
-    public Response toResponse(AuthException e) {
+    public Response toResponse(AuthException e) 
+    {
         MensajeError mensajeError =  new MensajeError(e.getMessage(), 401, "Error de Autenticación"); 
             return Response.status(Status.UNAUTHORIZED)
                     .type(MediaType.APPLICATION_JSON)
