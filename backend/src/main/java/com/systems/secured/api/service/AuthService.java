@@ -19,20 +19,20 @@ import javax.ws.rs.core.Response;
  *
  * @author luis_
  */
-
 @Path("/login")
-public class AuthService 
-{
+public class AuthService {
+
     @PermitAll
     @POST
-    public Response login(UserDto user)
-    {        
+    public Response login(UserDto user) {
         return Response.ok()
-                .header(
-                        HttpHeaders.AUTHORIZATION, 
-                        "Bearer " 
-                        + UserBl.getInstance().login(user, "localhost:4200/")
-                )
+                /*.header(
+                 HttpHeaders.AUTHORIZATION, 
+                 "Bearer " 
+                 + UserBl.getInstance().login(user, "localhost:4200/")
+                 )*/
+                .entity("{\"token\":\"" + UserBl.getInstance().login(user, "localhost:4200/") + "\"}")
                 .build();
+
     }
 }
