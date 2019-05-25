@@ -57,6 +57,7 @@ public class AuthUtil
         roles[0] = "user";
         
         return Jwts.builder()
+                .setHeaderParam("typ", "JWT")
                 .setIssuer(client)
                 .setAudience(AUTH_AUDIENCE)
                 .setSubject(user.getEmail())

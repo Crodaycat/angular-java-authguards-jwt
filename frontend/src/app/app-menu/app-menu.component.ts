@@ -21,8 +21,9 @@ export class AppMenuComponent implements OnInit {
     const user: User = new User();
     user.email = this.email;
     user.password = this.pass;
-    this.authService.login(user).subscribe(response=> {
-      console.log(response);
+    this.authService.login(user).subscribe(response => {
+      this.authService.setToken(response.data.token);
+      console.log(this.authService.getRoles());
     });
   }
 

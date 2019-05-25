@@ -10,7 +10,14 @@ export class CharactersService {
   constructor(private restangular: Restangular) { }
 
   getAllCharacters(): Observable<Character[]> {
-    return this.restangular.all(this.charactersContext).getList();
+
+    const token = localStorage.getItem('id_token');
+
+    return this.restangular.all(this.charactersContext)
+      .customGET( undefined, undefined, {
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Authorization': token ? 'Bearer ' + token : ''
+      });
   }
 
 }
