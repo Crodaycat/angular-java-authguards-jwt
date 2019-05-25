@@ -12,6 +12,8 @@ import { RestangularConfigFactory } from './common/Config';
 import { CharactersService } from './services/characters.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthService } from './services/auth.service';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, AppMenuComponent, AppViewCharactersComponent],
@@ -22,8 +24,11 @@ import { AuthService } from './services/auth.service';
     MatButtonModule,
     MatCardModule,
     RestangularModule.forRoot(RestangularConfigFactory),
+    FlexLayoutModule,
+    MatInputModule,
+    FormsModule,
     FlexLayoutModule
-  ],
+   ],
   providers: [CharactersService, AuthService],
   bootstrap: [AppComponent]
 })
