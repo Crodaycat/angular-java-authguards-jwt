@@ -12,6 +12,7 @@ import javax.annotation.security.PermitAll;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 
 /**
@@ -27,7 +28,11 @@ public class AuthService
     public Response login(UserDto user)
     {        
         return Response.ok()
-                .entity(UserBl.getInstance().login(user, "localhost:4200/"))
+                .header(
+                        HttpHeaders.AUTHORIZATION, 
+                        "Bearer " 
+                        + UserBl.getInstance().login(user, "localhost:4200/")
+                )
                 .build();
     }
 }
