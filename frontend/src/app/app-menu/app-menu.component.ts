@@ -12,4 +12,8 @@ export class AppMenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToSeeCharacters(){
+
+  }
+
 }
