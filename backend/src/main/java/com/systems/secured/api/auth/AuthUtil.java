@@ -83,7 +83,7 @@ public class AuthUtil
         } else {
             Claims claims;
             try {
-                claims = decodeToken(authHeader.split(" ")[2]);
+                claims = decodeToken(authHeader.split(" ")[1]);
             } catch (SignatureException e) {
                 throw new AuthException("No se pudo validar la firma del token.");
             } catch (ExpiredJwtException e) {
