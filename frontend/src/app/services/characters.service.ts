@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {baseURL} from '../common/BaseUrl';
 import {Restangular} from 'ngx-restangular';
 import { Character} from '../common/character';
 import { Observable } from 'rxjs';
