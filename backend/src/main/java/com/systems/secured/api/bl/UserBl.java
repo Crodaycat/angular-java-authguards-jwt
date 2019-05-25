@@ -7,6 +7,7 @@ package com.systems.secured.api.bl;
 
 import com.systems.secured.api.dao.UserDao;
 import com.systems.secured.api.dto.UserDto;
+import com.systems.secured.api.exceptions.AuthException;
 
 /**
  *
@@ -31,4 +32,19 @@ public class UserBl
     {
         return UserDao.getInstance().getUser();
     }
+    
+    public String login (UserDto user, String client) 
+    {
+        UserDto userDB = UserDao.getInstance().getUser();
+        
+        if (!user.getEmail().equalsIgnoreCase(userDB.getEmail()) ||
+                !user.getPassword().equals(userDB.getPassword()))
+        {
+            throw new AuthException("Usuario/Contraseña incorrecto.");
+        }
+        
+        return AuthBl.getInstance().login(client);
+    }
+    
+    
 }
