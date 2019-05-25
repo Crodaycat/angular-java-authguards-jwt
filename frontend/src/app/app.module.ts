@@ -10,6 +10,7 @@ import { AppViewCharactersComponent } from './app-view-characters/app-view-chara
 import { RestangularModule } from 'ngx-restangular';
 import {RestangularConfigFactory} from './common/Config';
 import { CharactersService} from './services/characters.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CharactersService} from './services/characters.service';
     MatButtonModule,
     MatCardModule,
     RestangularModule.forRoot(RestangularConfigFactory),
+    FlexLayoutModule
   ],
   providers: [CharactersService],
   bootstrap: [AppComponent]
