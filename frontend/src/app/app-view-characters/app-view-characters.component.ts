@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CharactersService} from '../services/characters.service';
 @Component({
   selector: 'app-app-view-characters',
   templateUrl: './app-view-characters.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppViewCharactersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private characterService: CharactersService) { }
 
   ngOnInit() {
+    this.characterService.getAllCharacters().subscribe( result => {
+      console.log(result);
+    });
   }
 
 }

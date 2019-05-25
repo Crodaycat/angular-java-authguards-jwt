@@ -2,11 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material';
-
+import {MatCardModule} from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppMenuComponent } from './app-menu/app-menu.component';
 import { AppViewCharactersComponent } from './app-view-characters/app-view-characters.component';
+import { RestangularModule } from 'ngx-restangular';
+import {RestangularConfigFactory} from './common/Config';
+import { CharactersService} from './services/characters.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,11 @@ import { AppViewCharactersComponent } from './app-view-characters/app-view-chara
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    RestangularModule.forRoot(RestangularConfigFactory),
   ],
-  providers: [],
+  providers: [CharactersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
