@@ -1,3 +1,14 @@
-<div class="button-row">
-  <button mat-raised-button color="primary" [routerLink]="'/characters'">Ver</button>
+<div class="container" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="2vw">
+  <form class="panel" fxLayoutAlign="center center" fxLayoutGap="2vw">
+    <mat-form-field class="email" >
+      <input matInput placeholder="Email" [(ngModel)]="email" name="email" >
+    </mat-form-field>
+    <mat-form-field class="password">
+      <input matInput type="password" placeholder="Password"  [(ngModel)]="pass" name="pass" >
+    </mat-form-field>
+  </form>
+  <div class="button-row" fxFlex="100%">
+    <!-- <button mat-raised-button color="primary" [routerLink]="'/characters'">See</button> -->
+    <button mat-raised-button color="primary" (click)="CheckLogin()">See</button>
+  </div>
 </div>

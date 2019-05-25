@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { User } from '../common/User';
 
 @Component({
   selector: 'app-app-menu',
@@ -7,13 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppMenuComponent implements OnInit {
 
-  constructor() { }
+  email = '';
+  pass = '';
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  goToSeeCharacters(){
-
+  CheckLogin(){
+    const user: User = new User();
+    user.email = this.email;
+    user.password = this.pass;
+    this.authService.login(user).subscribe(response=> {
+      console.log(response);
+    });
   }
 
 }

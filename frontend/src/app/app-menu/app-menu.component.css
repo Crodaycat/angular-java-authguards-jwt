@@ -1,5 +1,10 @@
 .button-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.panel{
+  margin-top: 2vw;
+  width: 100%;
+}
